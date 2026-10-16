@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /*
- * Network Documentation Audit Tool
+ * Network Documentation Tool
  * Single-file, dependency-free PHP application.
  * Requires PHP 7.4+ with standard JSON and session support. No optional PHP extensions are used.
  */
@@ -590,7 +590,7 @@ try {
 if ($bootstrapError !== '') {
     http_response_code(500);
     $safe = htmlspecialchars($bootstrapError, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    echo '<!doctype html><html lang="de"><meta charset="utf-8"><title>Startfehler</title><style>body{margin:0;background:#090d12;color:#e5edf5;font:14px system-ui;padding:40px}main{max-width:760px;margin:auto;background:#0f151d;border:1px solid #263241;padding:24px}code{color:#7eb6ff}</style><main><h1>Network Asset Documentation Audit konnte nicht starten</h1><p>' . $safe . '</p><p>Prüfe PHP-Version und Schreibrechte. Das Verzeichnis <code>' . htmlspecialchars(__DIR__, ENT_QUOTES, 'UTF-8') . '</code> muss für den PHP-Webserver beschreibbar sein.</p></main></html>';
+    echo '<!doctype html><html lang="de"><meta charset="utf-8"><title>Startfehler</title><style>body{margin:0;background:#090d12;color:#e5edf5;font:14px system-ui;padding:40px}main{max-width:760px;margin:auto;background:#0f151d;border:1px solid #263241;padding:24px}code{color:#7eb6ff}</style><main><h1>Network Asset Documentation konnte nicht starten</h1><p>' . $safe . '</p><p>Prüfe PHP-Version und Schreibrechte. Das Verzeichnis <code>' . htmlspecialchars(__DIR__, ENT_QUOTES, 'UTF-8') . '</code> muss für den PHP-Webserver beschreibbar sein.</p></main></html>';
     exit;
 }
 $error = '';
@@ -1755,7 +1755,7 @@ function selectf(string $name, string $label, array $opts, $value = ''): string
 <body>
     <div class="shell">
         <aside class="side">
-            <div class="brand">Network Asset Documentation Audit</div>
+            <div class="brand">Network Asset Documentation</div>
             <nav class="tenant-nav"><?php if ($current): ?>
                     <div class="nav-group"><a
                             class="nav nav-parent <?= in_array($view, ['overview', 'assets', 'map', 'reports'], true) ? 'active' : '' ?>"
