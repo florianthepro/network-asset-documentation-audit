@@ -1,4 +1,8 @@
-<!-- todo: import von externen analyze systemen dh dymps und datenformate sowie audit regel auto --># Network Asset Documentation Audit
+<!-- todo: import von externen analyze systemen dh dymps und datenformate sowie audit regel auto -->
+> [!CAUTION]
+> Disclaimer: This README.md was created using AI. AI was used for Vison finding.
+
+# Network Asset Documentation Audit
 
 ```text
 Projektname: Network Asset Documentation Audit
