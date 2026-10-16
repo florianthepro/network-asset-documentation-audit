@@ -1,12 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Network Documentation Tool
- * Single-file, dependency-free PHP application.
- * Requires PHP 7.4+ with standard JSON and session support. No optional PHP extensions are used.
- */
-
 const APP_NAME = 'NADA';
 const APP_VERSION = '1.0.0';
 const DATA_DIR = __DIR__ . '/tenant';
