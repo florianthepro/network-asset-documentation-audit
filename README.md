@@ -1,4 +1,4 @@
-# Network Asset Documentation Audit
+<!-- todo: import von externen analyze systemen dh dymps und datenformate sowie audit regel auto --># Network Asset Documentation Audit
 
 ```text
 Projektname: Network Asset Documentation Audit
@@ -382,6 +382,58 @@ http://localhost:8080
 ```
 
 Beim ersten Aufruf wird der erste Administrator angelegt. Das Passwort muss mindestens zwölf Zeichen lang sein.
+
+## Projekt-Index
+
+Weitere bereitgestellte Projektinstanzen befinden sich im zentralen Projekt-Index:
+
+```text
+https://github.com/florianthepro/pages/tree/main/content/instances
+```
+
+[Projektinstanzen öffnen](https://github.com/florianthepro/pages/tree/main/content/instances)
+
+## Schreibrechte des Webservers
+
+Das Projektverzeichnis muss für den verwendeten Webserver-Benutzer beschreibbar sein, damit NADA Tenants, Eingabedaten, Revisionen, Icons, Anhänge und Reports anlegen beziehungsweise aktualisieren kann.
+
+Vor der Ausführung muss `WEBROOT` auf das tatsächliche NADA-Verzeichnis gesetzt werden. Die folgenden Beispiele verwenden `/var/www/html`.
+
+### Debian und Ubuntu
+
+Webserver-Benutzer: `www-data`
+
+```bash
+sudo bash -c 'WEBROOT=/var/www/html; USER=www-data; chown -R "$USER:$USER" "$WEBROOT" && chmod -R u+rwX,g+rwX,o-rwx "$WEBROOT"'
+```
+
+### RHEL und CentOS
+
+Webserver-Benutzer: `apache`
+
+```bash
+sudo bash -c 'WEBROOT=/var/www/html; USER=apache; chown -R "$USER:$USER" "$WEBROOT" && chmod -R u+rwX,g+rwX,o-rwx "$WEBROOT"'
+```
+
+Die Befehle entziehen allen anderen Benutzern den Zugriff auf das Verzeichnis. Der gewählte Pfad darf deshalb nur auf das gewünschte Webprojekt zeigen.
+
+## Temporärer Apache-Test unter Windows
+
+Die folgenden Befehle laden ein temporäres Apache-Testskript aus dem zentralen `pages`-Repository und führen es lokal aus.
+
+### PowerShell
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex (irm 'https://raw.githubusercontent.com/florianthepro/pages/main/content/loader/start_apache_temp.bat')"
+```
+
+### Eingabeaufforderung
+
+```bat
+curl -sS -o "%TEMP%\tmp_start.bat" "https://raw.githubusercontent.com/florianthepro/pages/main/content/loader/tmp-apache.bat" && cmd /c "%TEMP%\tmp_start.bat"
+```
+
+Die Testskripte werden direkt aus dem angegebenen Repository geladen und ausgeführt. Vor dem Einsatz sollte der Inhalt der jeweiligen BAT-Datei geprüft werden.
 
 ## Repository
 
